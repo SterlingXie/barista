@@ -66,10 +66,10 @@ Here are some example inputs and outputs. You are given the times, and you need 
 | `3 3` | `3 1` |
 | `1 1 1` | |
 | **Test 3** | |
-| `5 4 1 1` | `1 180` |
+| `5 411` | `1 180` |
 | `1 2 3 4 5` | |
 | **Test 4** | |
-| `5 4 1 4` | `3 183` |
+| `5 414` | `3 183` |
 | `1 2 3 4 5` | |
 
 ![Barista](images/barista.jpg)
