@@ -40,13 +40,30 @@ def solve(N: int, K: int, times: List[int]) -> Tuple[int, int]:
         """
 
         # TODO Fill out the helper function
-
-        return 0
-
+        num_drinks = 0
+        for time in times:
+            num_drinks += t // time + 1
+        return num_drinks
 
     # TODO: Your code here.
+    min_pos, max_pos = 0, max(times) * K
+    while min_pos < max_pos:
+        mid = (min_pos + max_pos) // 2
+        if finished_drinks(mid) >= K:
+            max_pos = mid
+        else:
+            min_pos = mid + 1
+    t_barista_ready = min_pos
 
-    return 0, 0
+    simultaneous_queue = K - finished_drinks(t_barista_ready - 1)
+
+    for i in range(N):
+        if t_barista_ready % times[i] == 0:
+            simultaneous_queue -= 1
+            if simultaneous_queue == 0:
+                return i + 1, t_barista_ready + times[i]
+
+    return -1, -1
 
 
 def read_input():
